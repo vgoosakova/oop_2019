@@ -52,5 +52,21 @@ public class Lab2 {
             }
             System.out.println();
         }
+        int temp;
+        int sum_min = 0;
+        for (int i = 0; i < 3; i++) {
+            temp = C[i][0];
+
+            for (int j = 1; j < 3; j++) {
+                if (C[i][j] < temp) {
+                    temp = C[i][j];
+                }
+            }
+            sum_min += temp;
+
+        }
+        System.out.println();
+        System.out.println("SUM_SMALL = " + sum_min);
+
     }
 }
