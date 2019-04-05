@@ -1,33 +1,40 @@
 import java.util.Scanner;
+
 public class Lab3 {
-    public static void main(String[] args) {
-        System.out.println("Input numbers divided by space");
-        Scanner scanner = new Scanner(System.in);
-        String str = scanner.nextLine();
-        String[] SS = str.split("\\s+");
-        // \\s+ - many whitespaces
-        // \\s - only one
-        check(SS);
 
-    }
-
-    private static void check(String[] SS) {
-        int longestOne = 0;
-        String palindrome="";
-        for(String s: SS){
-
-            if(isPal(s)&&s.length()>longestOne){
-                longestOne=s.length();
-                palindrome = s;
-            }
-
+    private static boolean isPallindrom(String[] a) {
+        int q = a.length;
+        for (int i = 0; i < q / 2; i++) {
+            if (!a[i].equals(a[q - i - 1])) return false;
         }
-        if(palindrome.equals("")){
-            System.out.println("No palindrome in input numbers");
-        } else
-            System.out.println("Longest palindrome is: "+palindrome);
+        return true;
     }
-    static boolean isPal(String s){
-        return (s.equals(new StringBuilder(s).reverse().toString()));
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите строчку в которой есть палиндромы: ");
+
+        String[] x = scanner.nextLine().split("");
+
+        int len = x.length;
+
+        String a;
+
+        exitlabel:
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < i + 1; j++) {
+                a = "";
+                for (int k = j; k < len - i + j; k++) {
+                    a+=(x[k]);
+                }
+                if (isPallindrom(a.split(""))) {
+                    System.out.print(a + " первый самый длинный палиндром!");
+                    break exitlabel;
+                }
+            }
+        }
     }
 }
+//око за око лазер резал
