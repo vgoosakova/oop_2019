@@ -18,6 +18,7 @@ public class Lab3 {
 
         String[] x = scanner.nextLine().split("");
 
+
         int len = x.length;
 
         String a;
@@ -27,10 +28,10 @@ public class Lab3 {
             for (int j = 0; j < i + 1; j++) {
                 a = "";
                 for (int k = j; k < len - i + j; k++) {
-                    a+=(x[k]);
+                    a += (x[k]);
                 }
                 if (isPallindrom(a.split(""))) {
-                    System.out.print(a + " первый самый длинный палиндром!");
+                    System.out.print(a + " - первый самый длинный палиндром");
                     break exitlabel;
                 }
             }

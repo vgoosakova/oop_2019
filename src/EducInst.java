@@ -1,14 +1,14 @@
 
-@SuppressWarnings("WeakerAccess")
+
 
 public class EducInst {
     private String name;
     private int students;
     private String city;
-    private String teachers;
-    private String foundation;
+    private int teachers;
+    private int foundation;
 
-    public EducInst(String name, int students, String city, String teachers, String foundation) {
+    public EducInst(String name, int students, String city, int teachers, int foundation) {
         this.name = name;
         this.students = students;
         this.city = city;
@@ -16,7 +16,7 @@ public class EducInst {
         this.foundation = foundation;
     }
 
-    //@Override
+    @Override
     public String toString() {
         return "name: " + name + "\t\t" +
                 " students: " + students+ "\t\t" +
@@ -37,11 +37,11 @@ public class EducInst {
         return city;
     }
 
-    public String getTeachers() {
+    public int getTeachers() {
         return teachers;
     }
 
-    public String getFoundation() {
+    public int getFoundation() {
         return foundation;
     }
 
