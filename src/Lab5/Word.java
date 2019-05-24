@@ -1,4 +1,5 @@
 package Lab5;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -68,7 +69,7 @@ class Word extends SentenceMember {
                 output(words[i].palindromeStart, words[i].size() - 1, words[i]);
                 i++;
                 while (words[i] != wordPalindromeEnd) {
-                    output(0,words[i].size()-1,words[i]);
+                    output(0, words[i].size() - 1, words[i]);
                     i++;
                 }
                 output(0, words[i].palindromeEnd, words[i]);

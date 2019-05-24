@@ -1,6 +1,3 @@
-
-
-
 public class EducInst {
     private String name;
     private int students;
@@ -29,7 +26,7 @@ public class EducInst {
         return name;
     }
 
-    public int getStudents() {
+    public int getStudents(){
         return students;
     }
 

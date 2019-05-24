@@ -2,22 +2,14 @@ package Lab6;
 
 public class Composition {
     private String name;
-    private String style;
+    private String artist;
     private double duration;
-    private double totalDuration;
+    private String style;
 
-    public Composition (String name, String style, double duration) {
+    public Composition(String name, String artist, double duration) {
         this.name = name;
-        this.style = style;
+        this.artist = artist;
         this.duration = duration;
-    }
-
-    @Override
-    public String toString() {
-        return "Name: " + name + " |"
-                + " style: " + style + " |"
-                + " duration: " + duration + " |"
-                + " total duration: " + totalDuration;
     }
 
 
@@ -25,15 +17,20 @@ public class Composition {
         return name;
     }
 
-    public String getStyle() {
-        return style;
+    public String getArtist() {
+        return artist;
     }
 
     public double getDuration() {
         return duration;
     }
-    public double getTotalDuration() {
-        return totalDuration;
+
+    public void setStyle(String style) {
+        this.style = style;
     }
 
+
+    public String getStyle() {
+        return style;
+    }
 }

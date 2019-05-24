@@ -1,14 +1,15 @@
 package Lab6;
 
-import java.sql.SQLOutput;
-
 public class Main {
     public static void main(String[] args) {
         System.out.println("=======ALBUM=======");
         Album album = new Album(3);
-        album.addAllofme("Allofme", "jazz", 2);
-        album.addFly("Fly", "pop", 4);
-        album.addFurElise("FurElise", "lyrics",  3);
+
+        album.addRock("Highway to hell", "AC/DC", 1.5);
+        album.addPop("Angel", "The Alice Band", 3.7);
+        album.addJazz("Bye-Bye", "Freedom Jazz", 4.3);
+
+
         System.out.print(album);
         System.out.println("Total Album Duration: " + album.albumDuration() + "\n");
 
@@ -18,7 +19,7 @@ public class Main {
 
         System.out.println("=========givenDuration=========");
         double from = 1;
-        double to = 5;
+        double to = 4;
         System.out.println("from: " + from + " === to: " + to);
         album.findCompositionsWithDuration(from, to);
 

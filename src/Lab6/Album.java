@@ -1,11 +1,13 @@
 package Lab6;
+
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Album {
     private int numOfCompositions;
     private Composition[] compositions;
     private int counter = 0;
-    private int albumTotalDuration = 0;
+    private double albumTotalDuration = 0;
 
 
     public Album(int numOfCompositions) {
@@ -13,40 +15,42 @@ public class Album {
         compositions = new Composition[numOfCompositions];
     }
 
-    public void addAllofme(String name, String style ,  double duration) {
+    public void addRock(String name, String artist, double duration) {
         if (counter < numOfCompositions) {
-            compositions[counter++] = new Allofme(name, style, duration);
+            compositions[counter++] = new Rock(name, artist, duration);
+
         } else {
             System.out.println("Album size is exceeded!");
         }
     }
 
-    public void addFly(String name, String style ,  double duration) {
+    public void addPop(String name, String artist, double duration) {
         if (counter < numOfCompositions) {
-            compositions[counter++] = new Fly(name, style, duration);
+            compositions[counter++] = new Pop(name, artist, duration);
         } else {
             System.out.println("Album size is exceeded!");
         }
     }
 
-    public void addFurElise(String name, String style ,  double duration) {
+    public void addJazz(String name, String artist, double duration) {
         if (counter < numOfCompositions) {
-            compositions[counter++] = new FurElise(name, style, duration);
+            compositions[counter++] = new Jazz(name, artist, duration);
         } else {
             System.out.println("Album size is exceeded!");
         }
     }
 
-    public int albumDuration(){
-        for (Composition composition:compositions) {
-            albumTotalDuration += composition.getTotalDuration();
+    public double albumDuration() {
+        for (Composition composition : compositions) {
+            albumTotalDuration += composition.getDuration();
         }
         return albumTotalDuration;
     }
 
 
     public void sortStyle() {
-        Arrays.sort(compositions, new ComparatorByStyle());
+        Arrays.sort(compositions, Comparator.comparing(Composition::getStyle));
+
     }
 
     public void findCompositionsWithDuration(double min, double max) {
@@ -55,10 +59,6 @@ public class Album {
                 System.out.println(composition);
             }
         }
-    }
-
-    public Composition[] getCompositions() {
-        return compositions;
     }
 
     @Override
