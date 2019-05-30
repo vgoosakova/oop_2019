@@ -7,7 +7,7 @@ public class Main {
 
         album.addRock("Highway to hell", "AC/DC", 1.5);
         album.addPop("Angel", "The Alice Band", 3.7);
-        album.addJazz("Bye-Bye", "Freedom Jazz", 4.3);
+        album.addJazz("Bye-Bye", "Freedom Jazz", 4);
 
 
         System.out.print(album);

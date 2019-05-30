@@ -18,7 +18,6 @@ public class Album {
     public void addRock(String name, String artist, double duration) {
         if (counter < numOfCompositions) {
             compositions[counter++] = new Rock(name, artist, duration);
-
         } else {
             System.out.println("Album size is exceeded!");
         }

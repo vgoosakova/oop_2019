@@ -1,24 +1,14 @@
 package Lab5;
 
-public class Letter {
-    private char aChar;
+class Letter {
+    private char letter;
 
-        Letter(char aChar) {
-            this.aChar = aChar;
-        }
+    public Letter(char letter) {
+        this.letter = letter;
+    }
 
-        public static void output(int palindromeStart, int i) {
-            System.out.println("output");
-
-
-        }
-
-        @Override
-        public String toString() {
-            return aChar + "";
-        }
-
-        char getaChar() {
-            return aChar;
-        }
+    @Override
+    public String toString() {
+        return Character.toString(letter);
+    }
 }

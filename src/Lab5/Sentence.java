@@ -1,40 +1,43 @@
 package Lab5;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 class Sentence {
-    private static final String PUNCTUATION_SYMBOLS = ",.!?";
     private SentenceMember[] sentenceMembers;
 
-
-    Sentence(String s) {
+    public Sentence(String s) {
         String[] split = s.split("(?=[,.!?])|\\s");
         sentenceMembers = new SentenceMember[split.length];
+
         for (int i = 0; i < split.length; i++) {
-            if (PUNCTUATION_SYMBOLS.contains(split[i])) {
-                sentenceMembers[i] = new Punctuation(split[i]);
+            String punctuationSymbols = ",.!?;:";
+            if (punctuationSymbols.contains(split[i])) {
+                sentenceMembers[i] = new PunctuationMark(split[i]);
             } else {
                 sentenceMembers[i] = new Word(split[i]);
             }
         }
     }
 
-    private static String getMaxPalindromeFromWords(Word[] words) {
-        return Word.getMaxPalindromeFromWords(words);
-    }
+    public String toString() {
+        StringBuilder result = new StringBuilder();
 
-    private Word[] getWords() {
-        return Arrays.stream(sentenceMembers)
-                .filter(sentenceMember -> sentenceMember instanceof Word)
-                .collect(Collectors.toList()).toArray(new Word[]{});
-    }
-
-    static String getMaxPalindromeFromSentences(Sentence[] sentences) {
-        ArrayList<Word> words = new ArrayList<>();
-        for (Sentence sentence : sentences) {
-            words.addAll(Arrays.asList(sentence.getWords()));
+        for (int i = 0; i < sentenceMembers.length; i++) {
+            result.append(sentenceMembers[i] instanceof Word && i != 0 ?
+                    " " : "").append(sentenceMembers[i].toString());
         }
-        return getMaxPalindromeFromWords(words.toArray(new Word[]{}));
+        return result.toString();
     }
+
+    public Word[] toWords() {
+        Word[] words = new Word[this.sentenceMembers.length];
+        int i = 0;
+
+        for (SentenceMember member : this.sentenceMembers) {
+            if (member instanceof Word) {
+                words[i] = (Word) member;
+                ++i;
+            }
+        }
+        return words;
+    }
+
+    public int getLength() { return this.sentenceMembers.length; }
 }
