@@ -50,7 +50,7 @@ class Text {
             }
         }
 
-        // Check for lengths greater than 2. k is length
+        // Check for length greater than 2. k is length
         // of substring
         for (int k = 3; k <= n; ++k) {
             // Fix the starting index

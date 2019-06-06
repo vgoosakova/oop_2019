@@ -11,14 +11,6 @@ class Word extends SentenceMember {
         }
     }
 
-    public static Word subword(Word word, int from) {
-        return new Word(word.toString().substring(from));
-    }
-
-    public int getLength() {
-        return this.letters.length;
-    }
-
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();

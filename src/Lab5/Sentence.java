@@ -25,19 +25,4 @@ class Sentence {
         }
         return result.toString();
     }
-
-    public Word[] toWords() {
-        Word[] words = new Word[this.sentenceMembers.length];
-        int i = 0;
-
-        for (SentenceMember member : this.sentenceMembers) {
-            if (member instanceof Word) {
-                words[i] = (Word) member;
-                ++i;
-            }
-        }
-        return words;
-    }
-
-    public int getLength() { return this.sentenceMembers.length; }
 }

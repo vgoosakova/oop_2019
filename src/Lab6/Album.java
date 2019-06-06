@@ -2,6 +2,7 @@ package Lab6;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Album {
     private int numOfCompositions;
@@ -9,6 +10,22 @@ public class Album {
     private int counter = 0;
     private double albumTotalDuration = 0;
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Album album = (Album) o;
+        return numOfCompositions == album.numOfCompositions &&
+                Arrays.equals(compositions, album.compositions);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(numOfCompositions);
+        result = 31 * result + Arrays.hashCode(compositions);
+        return result;
+    }
 
     public Album(int numOfCompositions) {
         this.numOfCompositions = numOfCompositions;
