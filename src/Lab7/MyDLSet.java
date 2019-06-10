@@ -174,7 +174,7 @@ public class MyDLSet implements Set<Album> {
         }
 
         if (this.contains(album)) {
-            System.out.println("Only unique objects expected!\n");
+            System.out.println("    Only unique objects expected!\n");
             return false;
         }
 
