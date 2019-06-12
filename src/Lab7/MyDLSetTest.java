@@ -2,9 +2,19 @@ package Lab7;
 
 import Lab6.Album;
 import org.junit.jupiter.api.Assertions;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
+
+// My simple exception class
+class VikaException extends Exception {
+    public VikaException() {
+        super("Vika has found an exception!");
+    }
+}
+
+// Test for main program
 class MyDLSetTest {
 
     private MyDLSet set;
@@ -93,6 +103,7 @@ class MyDLSetTest {
     @org.junit.jupiter.api.Test
     void add() {
         set.add(albumSecond);
+        set.add(album); // Don't add same object
 
         Assertions.assertEquals(2, set.size());
         Assertions.assertTrue(set.contains(albumSecond));
@@ -124,12 +135,12 @@ class MyDLSetTest {
     void addAll() {
         ArrayList<Album> list = new ArrayList<>();
         list.add(albumSecond);
+        list.add(album); // only unique objects expected! Don't add
 
         set.addAll(list);
 
         Assertions.assertEquals(2, set.size());
         Assertions.assertTrue(set.contains(albumSecond));
-
 
         System.out.println("    addAll() -> Success!");
     }
@@ -164,7 +175,7 @@ class MyDLSetTest {
         set.clear();
 
         Assertions.assertEquals(0, set.size());
-        //Assertions.assertFalse(set.contains(album));
+        Assertions.assertFalse(set.contains(album));
 
         System.out.println("    clear() -> Success!");
     }

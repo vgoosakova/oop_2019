@@ -286,8 +286,10 @@ public class MyDLSet implements Set<Album> {
 
     @Override
     public void clear() {
-        this.getHead().setNext(null);
-        this.getTail().setPrevious(null);
+        this.getHead().setNext(this.getTail());
+        this.getTail().setPrevious(this.getHead());
+        this.setHead(null);
+        this.setTail(null);
         this.setSize(0);
     }
 }
